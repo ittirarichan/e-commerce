@@ -94,64 +94,46 @@ return(
         </div>
       ))}
     </div>
-  </div>
+      {add ?(
+        <ViewProduct
+        currentproduct={currentProduct}
+        />
+      ):console.log('view product      ')}
+      </div>
+      <Footer/>  
+
   </>
-)
+  )
 
 }
 
-// function Home(){
-//     return(
-//       <>
-//         <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel">
-//             <div className="carousel-indicators">
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="carousel" aria-label="Slide 1"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-//               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
-//             </div>
-//             <div className="carousel-inner ">
-//               <div className="carousel-item active">
-//                 <img src={img1} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//                 <img src={img2} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//                 <img src={img3} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//                 <img src={img4} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//               <img src={img5} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//               <img src={img6} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//               <img src={img7} className="d-block w-100" alt="..."/>
-//               </div>
-//               <div className="carousel-item">
-//               <img src={img8} className="d-block w-100" alt="..."/>
-//               </div>
-//             </div>
-//             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-//               <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-//               <span className="visually-hidden">Previous</span>
-//             </button>
-//             <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-//               <span className="carousel-control-next-icon" aria-hidden="true"></span>
-//               <span className="visually-hidden">Next</span>
-//             </button>
-//           </div>     
-//       <Footer/>  
-//       </> 
-//     );
-// }
+const ViewProduct=(currentproduct)=>{
+  const [product,setProduct]=useState(currentproduct)
+  document.getElementById("a1").style.display="none"
+  document.getElementById("carouselExampleIndicators").style.display="none"
+  return (
+    <>
+    <div className='container'>
+    <div className='row g-4'>
+      <div className='col-lg-6 d-flex justify-content-center'>
+        <img src={product.currentproduct.image} alt="" className='img-fluid col-lg-12 w-75' />
+      </div>
+      <div className='desc col-lg-6'>
+        <h2>{product.currentproduct.p_name}</h2>
+        <p>{product.currentproduct.description}</p>
+        {/* consol.log(product.currentProduct) */}
+        <p>${product.currentproduct.price}</p>
+        <div className='row'>
+          <button className='btn btn-warning col-lg-10'>Add to cart</button>
+          <button className='btn btn-primary col-lg-10 mt-1'>Buy now</button>
+        </div>
 
+      </div>
+    </div>
+    </div>
+</>
+  )
+}
+
+   
 export default Home
